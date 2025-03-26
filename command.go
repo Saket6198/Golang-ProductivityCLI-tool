@@ -17,6 +17,11 @@ type CmdFlags struct {
 }
 
 func NewCmdFlags() *CmdFlags {
+	if len(os.Args) == 1 {
+		fmt.Println("ProdCLI version 1.0.0")
+		fmt.Println("Type go run . -help for more information")
+		os.Exit(0)
+	}
 	cmd := CmdFlags{}
 
 	flag.StringVar(&cmd.Add, "add", "", "Add a new todo")
